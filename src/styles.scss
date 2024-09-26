@@ -1,0 +1,100 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+    background-color: #f5f5f5;
+}
+
+.dashboard-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #3f51b5;
+    padding: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.step-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+::ng-deep .mat-snack-bar-container {
+    top: 20px;
+    right: 20px;
+}
+
+.stepper-heading {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    font-size: 15px;
+    color: #3f51b5;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Increased gap for better spacing */
+    font-size: 16px;
+    /* Increased font size for readability */
+    font-weight: 500;
+    width: 400px;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 8px;
+    /* Slightly larger radius for softer edges */
+    background-color: #fff;
+    /* White background for contrast */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Softer shadow */
+}
+
+.info-form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Space between label and value */
+    gap: 10px;
+    /* Increased gap for better readability */
+}
+
+.info-form label {
+    font-weight: bold;
+    color: #3f51b5;
+    /* Color for labels */
+}
+
+.info-form div div {
+    color: #555;
+    /* Dark gray for values */
+}
+
+.info-form div:hover {
+    background-color: #f0f0f0;
+    /* Light gray background on hover */
+    transition: background-color 0.3s;
+    /* Smooth transition effect */
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

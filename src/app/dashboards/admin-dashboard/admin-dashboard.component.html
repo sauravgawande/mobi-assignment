@@ -1,0 +1,187 @@
+<h1 class="dashboard-heading">Welcome to Admin Dashboard</h1>
+
+
+<div class="container">
+    <h4 class="stepper-heading">
+        <mat-icon class="user-icon" aria-hidden="false" aria-label="Add User">person_add</mat-icon>
+        Add New User
+    </h4>
+    <div>
+        <button mat-flat-button color="primary" (click)="logout()">
+            <mat-icon class="logout-icon" aria-hidden="false" aria-label="Logout">logout</mat-icon>
+            Logout
+        </button>
+    </div>
+</div>
+<mat-horizontal-stepper linear>
+
+    <!-- Step 1 -->
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Step 1: Personal Details</ng-template>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" required />
+                    @if(firstFormGroup.get('firstName')?.hasError('required')) {
+                    <mat-error>First Name is required</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" required />
+                    @if(firstFormGroup.get('lastName')?.hasError('required')) {
+                    <mat-error>Last Name is required</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-flat-button color="primary" matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <!-- Step 2 -->
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Step 2: Contact Information</ng-template>
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required />
+                    @if(secondFormGroup.get('email')?.hasError('required')) {
+                    <mat-error>Email is required</mat-error>
+                    } @if(secondFormGroup.get('email')?.hasError('email')) {
+                    <mat-error>Invalid email format</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" required>
+                    @if(secondFormGroup.get('password')?.hasError('required')) {
+                    <mat-error>Password is required</mat-error>
+                    } @if(secondFormGroup.get('password')?.hasError('password')) {
+                    <mat-error>Invalid password format</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="phone" required />
+                    @if(secondFormGroup.get('phone')?.hasError('required')) {
+                    <mat-error>Phone number is required</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="step-btn">
+                <button mat-flat-button color="warn" matStepperPrevious>Back</button>
+                <button mat-flat-button color="primary" matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <!-- Step 3 -->
+    <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Step 3: Role and Department</ng-template>
+            <div>
+                <mat-form-field>
+                    <mat-label>Role</mat-label>
+                    <mat-select formControlName="role" required>
+                        <mat-option value="user">User</mat-option>
+                        <mat-option value="super-user">Super User</mat-option>
+                    </mat-select>
+                    @if(thirdFormGroup.get('role')?.hasError('required')) {
+                    <mat-error>Role is required</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Department</mat-label>
+                    <input matInput formControlName="department" required />
+                    @if(thirdFormGroup.get('department')?.hasError('required')) {
+                    <mat-error>Department is required</mat-error>
+                    }
+                </mat-form-field>
+            </div>
+
+            <div class="step-btn">
+                <button mat-flat-button color="warn" matStepperPrevious>Back</button>
+                <button mat-flat-button color="primary" matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <!-- Step 4 -->
+    <mat-step [stepControl]="payrollFormGroup">
+        <form [formGroup]="payrollFormGroup">
+            <ng-template matStepLabel>Step 4: Payroll Information</ng-template>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Salary</mat-label>
+                    <input matInput formControlName="salary" required pattern="^[0-9]*$" />
+                    @if(payrollFormGroup.get('salary')?.hasError('required')){<mat-error>Salary is required</mat-error>}
+                    @if(payrollFormGroup.get('salary')?.hasError('pattern')){<mat-error>Salary must be a
+                        number</mat-error>}
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Bank Account Number</mat-label>
+                    <input matInput formControlName="bankAccount" required pattern="^[0-9]*$" />
+                    @if(payrollFormGroup.get('bankAccount')?.hasError('required')){<mat-error>Bank Account Number is
+                        required</mat-error>}
+                    @if(payrollFormGroup.get('bankAccount')?.hasError('pattern')){<mat-error>Bank Account Number must be
+                        a number</mat-error>}
+                </mat-form-field>
+            </div>
+
+            <!-- New Fields -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Tax Deduction</mat-label>
+                    <input matInput formControlName="taxDeduction" required pattern="^[0-9]*$" />
+                    @if(payrollFormGroup.get('taxDeduction')?.hasError('required')){<mat-error>Tax Deduction is
+                        required</mat-error>}
+                    @if(payrollFormGroup.get('taxDeduction')?.hasError('pattern')){<mat-error>Tax Deduction must be a
+                        number</mat-error>}
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Health Insurance</mat-label>
+                    <input matInput formControlName="healthInsurance" required pattern="^[0-9]*$" />
+                    @if(payrollFormGroup.get('healthInsurance')?.hasError('required')){<mat-error>Health Insurance is
+                        required</mat-error>}
+                    @if(payrollFormGroup.get('healthInsurance')?.hasError('pattern')){<mat-error>Health Insurance must
+                        be a number</mat-error>}
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Bonus</mat-label>
+                    <input matInput formControlName="bonus" required pattern="^[0-9]*$" />
+                    @if(payrollFormGroup.get('bonus')?.hasError('required')){<mat-error>Bonus is required</mat-error>}
+                    @if(payrollFormGroup.get('bonus')?.hasError('pattern')){<mat-error>Bonus must be a
+                        number</mat-error>}
+                </mat-form-field>
+            </div>
+
+            <div class="step-btn">
+                <button mat-flat-button color="warn" matStepperPrevious>Back</button>
+                <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
+            </div>
+        </form>
+    </mat-step>
+
+</mat-horizontal-stepper>

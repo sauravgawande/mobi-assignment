@@ -1,0 +1,50 @@
+<h1 class="dashboard-heading">Welcome to Super Admin Dashboard</h1>
+<div class="container">
+    <h4 class="stepper-heading">
+        <mat-icon class="user-icon" aria-hidden="false" aria-label="Add User">person_add</mat-icon>
+      Logged user info :
+    </h4>
+    <div>
+        <button  mat-flat-button color="primary"  (click)="logout()">
+            <mat-icon class="logout-icon" aria-hidden="false" aria-label="Logout">logout</mat-icon>
+            Logout
+        </button>  
+    </div>
+</div>
+<!-- Information container -->
+<div class="info-container">
+  <div class="info-form">
+    <div>
+      <label>User Name:</label>
+      <div>{{loginedInUserObj?.firstName}} {{loginedInUserObj?.lastName}}</div>
+    </div>
+    <div>
+      <label>Role type:</label>
+      <div>{{loginedInUserObj?.role}}</div>
+    </div>
+    <div>
+      <label>Department:</label>
+      <div>{{loginedInUserObj?.department}}</div>
+    </div>
+    <div>
+      <label>Account Number:</label>
+      <div>{{loginedInUserObj?.bankAccount}}</div>
+    </div>
+    <div>
+      <label>Salary:</label>
+      <div>{{loginedInUserObj?.salary}}/-</div>
+    </div>
+    <div>
+      <label>Tax Deduction:</label>
+      <div>{{loginedInUserObj?.taxDeduction}}/-</div>
+    </div>
+    <div>
+      <label>Health Insurance:</label>
+      <div>{{loginedInUserObj?.healthInsurance}}/-</div>
+    </div>
+    <div>
+      <label>Bonus:</label>
+      <div>{{loginedInUserObj?.bonus}}/-</div>
+    </div>
+  </div>
+</div>
